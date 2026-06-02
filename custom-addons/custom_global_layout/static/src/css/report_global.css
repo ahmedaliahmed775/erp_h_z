@@ -5,35 +5,40 @@
 /* ============================================================ */
 
 /* === الخط العام === */
-/*  ملاحظة: wkhtmltopdf لا يدعم @import الخارجي.
-    يجب وضع ملفات خط Cairo في static/src/fonts/ وتحميلها عبر @font-face أدناه.
-    للتفعيل، حمّل ملفات Cairo (Cairo-Regular.ttf, Cairo-Bold.ttf)
-    من https://fonts.google.com/specimen/Cairo وضعها في المجلد المذكور. */
+/*  ملفات خط Cairo محمّلة محلياً في static/src/fonts/static/
+    wkhtmltopdf لا يدعم @import الخارجي، لذا نستخدم @font-face */
 
 @font-face {
     font-family: 'Cairo';
-    src: url('../fonts/Cairo-Regular.ttf') format('truetype');
+    src: url('../fonts/static/Cairo-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Cairo';
-    src: url('../fonts/Cairo-SemiBold.ttf') format('truetype');
+    src: url('../fonts/static/Cairo-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/static/Cairo-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Cairo';
-    src: url('../fonts/Cairo-Bold.ttf') format('truetype');
+    src: url('../fonts/static/Cairo-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Cairo';
-    src: url('../fonts/Cairo-ExtraBold.ttf') format('truetype');
+    src: url('../fonts/static/Cairo-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
 }
