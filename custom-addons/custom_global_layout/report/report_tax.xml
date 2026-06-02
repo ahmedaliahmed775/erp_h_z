@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  تقرير الضرائب (Tax Report)                                  -->
+    <!--  الأصلي: base_accounting_kit.report_tax                     -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_tax"
+              inherit_id="base_accounting_kit.report_tax"
+              name="HZ Tax Report">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

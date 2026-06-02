@@ -1,0 +1,40 @@
+services:
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    # لا تعرض بورت قاعدة البيانات للخارج — أمان
+    networks:
+      - erp-network
+
+  odoo:
+    image: odoo:17
+    restart: always
+    ports:
+      - "8069:8069"
+    depends_on:
+      - db
+    volumes:
+      - ./custom-addons:/mnt/extra-addons
+      - ./config/odoo.conf:/etc/odoo/odoo.conf
+      - odoo-data:/var/lib/odoo
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+    networks:
+      - erp-network
+
+volumes:
+  db-data:
+  odoo-data:
+
+networks:
+  erp-network:
+    driver: bridge

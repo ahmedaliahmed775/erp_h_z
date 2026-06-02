@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <!-- ========================================== -->
+    <!--  بيانات الشركة الافتراضية                   -->
+    <!-- ========================================== -->
+
+    <!-- تحديث اسم الشركة الرئيسية -->
+    <record id="base.main_company" model="res.company">
+        <field name="name">الحسن زكريا لاستيراد المستلزمات الطبية</field>
+    </record>
+
+    <!-- تحديث الشريك المرتبط بالشركة -->
+    <record id="base.main_partner" model="res.partner">
+        <field name="name">الحسن زكريا لاستيراد المستلزمات الطبية</field>
+    </record>
+
+</odoo>

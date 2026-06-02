@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  إيصال الدفع — Payment Receipt                               -->
+    <!--  الأصلي: account.report_payment_receipt_document             -->
+    <!-- ============================================================ -->
+
+    <template id="hz_payment_receipt"
+              inherit_id="account.report_payment_receipt_document"
+              name="HZ Payment Receipt">
+
+        <!-- ===== تعريب عنوان الإيصال ===== -->
+        <xpath expr="//h3/strong[@id='payment_title']" position="replace">
+            <strong id="payment_title">إيصال دفع: <span t-field="o.name">INV0001</span></strong>
+        </xpath>
+
+        <!-- ===== إضافة hz-table على جدول الفواتير ===== -->
+        <xpath expr="//table[@name='invoices']" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//div[hasclass('oe_structure')][last()]" position="after">
+            <div class="hz-signature-section">
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <div class="hz-signature-line">
+                            <span>توقيع المستلم</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="hz-signature-line">
+                            <span>توقيع أمين الصندوق</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

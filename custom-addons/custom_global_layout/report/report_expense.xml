@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  تقرير المصاريف (Expense Report)                             -->
+    <!--  الأصلي: hr_expense.report_expense_sheet                     -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_expense"
+              inherit_id="hr_expense.report_expense_sheet"
+              name="HZ Expense Report">
+
+        <!-- ===== إضافة hz-table على الجداول ===== -->
+        <xpath expr="//table[hasclass('o_table')]" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div class="hz-signature-section">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>توقيع الموظف</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المدير المباشر</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المدير المالي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

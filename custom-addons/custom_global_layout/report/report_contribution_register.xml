@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  سجل المساهمات (Contribution Register)                       -->
+    <!--  الأصلي: om_hr_payroll.report_contribution_register          -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_contribution_register"
+              inherit_id="om_hr_payroll.report_contribution_register"
+              name="HZ Contribution Register">
+
+        <!-- ===== إضافة hz-table على الجداول ===== -->
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

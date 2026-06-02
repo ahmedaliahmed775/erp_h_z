@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  ميزان المراجعة (Trial Balance)                               -->
+    <!--  الأصلي: base_accounting_kit.report_trial_balance            -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_trial_balance"
+              inherit_id="base_accounting_kit.report_trial_balance"
+              name="HZ Trial Balance">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

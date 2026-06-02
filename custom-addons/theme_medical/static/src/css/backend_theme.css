@@ -1,0 +1,133 @@
+/* ============================================= */
+/*  نظام المستلزمات الطبية — الثيم الخلفي        */
+/*  تخصيص كامل للواجهة الخلفية                    */
+/* ============================================= */
+
+:root {
+    /* ألوان الهوية الطبية */
+    --medical-primary: #0077B6;
+    --medical-primary-dark: #023E8A;
+    --medical-secondary: #00B4D8;
+    --medical-accent: #48CAE4;
+    --medical-light: #CAF0F8;
+    --medical-success: #06D6A0;
+    --medical-warning: #FFD166;
+    --medical-danger: #EF476F;
+    --medical-bg: #F8FFFE;
+}
+
+/* ============================================= */
+/*  الشريط العلوي (Navbar)                        */
+/* ============================================= */
+.o_main_navbar {
+    background: linear-gradient(135deg, var(--medical-primary-dark), var(--medical-primary)) !important;
+    box-shadow: 0 2px 10px rgba(0, 119, 182, 0.3);
+}
+
+.o_main_navbar .o_menu_brand {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.o_main_navbar .o_menu_sections a,
+.o_main_navbar .o_menu_systray a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.o_main_navbar .o_menu_sections a:hover,
+.o_main_navbar .o_menu_systray a:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 6px;
+}
+
+/* ============================================= */
+/*  الألوان الأساسية (Primary)                    */
+/* ============================================= */
+.btn-primary,
+.o_kanban_button_new,
+.o_list_button_add {
+    background-color: var(--medical-primary) !important;
+    border-color: var(--medical-primary) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--medical-primary-dark) !important;
+    border-color: var(--medical-primary-dark) !important;
+}
+
+/* ============================================= */
+/*  إخفاء أي إشارة لـ Odoo                       */
+/* ============================================= */
+
+/* إخفاء "Powered by Odoo" */
+.o_brand_promotion,
+.o_brand_promotion_message,
+a[href*="odoo.com"],
+.o_home_menu_background .o_odoo_label {
+    display: none !important;
+}
+
+/* إخفاء شعار Odoo في صفحة الرئيسية */
+.o_home_menu .o_odoo_logo {
+    display: none !important;
+}
+
+/* ============================================= */
+/*  الشريط الجانبي (Sidebar)                     */
+/* ============================================= */
+.o_action_manager {
+    background-color: var(--medical-bg);
+}
+
+/* ============================================= */
+/*  البطاقات (Cards) — تحسين المظهر               */
+/* ============================================= */
+.o_kanban_record {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 119, 182, 0.1);
+    transition: all 0.2s ease;
+}
+
+.o_kanban_record:hover {
+    box-shadow: 0 4px 15px rgba(0, 119, 182, 0.15);
+    transform: translateY(-2px);
+}
+
+/* ============================================= */
+/*  الجداول (List View)                          */
+/* ============================================= */
+.o_list_view thead {
+    background-color: var(--medical-primary) !important;
+}
+
+.o_list_view thead th {
+    color: #ffffff !important;
+}
+
+/* ============================================= */
+/*  محرر النماذج (Form View)                      */
+/* ============================================= */
+.o_form_view .o_form_sheet {
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================= */
+/*  إشعارات (Notifications)                      */
+/* ============================================= */
+.o_notification_manager .o_notification {
+    border-radius: 10px;
+}
+
+/* ============================================= */
+/*  RTL دعم — تحسينات للعربي                     */
+/* ============================================= */
+html[dir="rtl"] .o_main_navbar .o_menu_brand {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+html[dir="rtl"] body {
+    font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif;
+}

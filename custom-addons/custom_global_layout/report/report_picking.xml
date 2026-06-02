@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  عمليات المخزون (Picking Operations)                         -->
+    <!--  الأصلي: stock.report_picking                                -->
+    <!--  أعمدة: th_product, Quantity, th_from, th_to,                -->
+    <!--         th_serial_number, th_barcode                         -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_picking"
+              inherit_id="stock.report_picking"
+              name="HZ Picking Operations">
+
+        <!-- ===== تعريب عناوين المعلومات ===== -->
+        <xpath expr="//div[@name='div_origin']/strong" position="replace">
+            <strong>الطلب المرجعي:</strong>
+        </xpath>
+        <xpath expr="//div[@name='div_state']/strong" position="replace">
+            <strong>الحالة:</strong>
+        </xpath>
+        <xpath expr="//div[@name='div_sched_date']/strong" position="replace">
+            <strong>التاريخ المحدد:</strong>
+        </xpath>
+
+        <!-- ===== تعريب عناوين الجدول ===== -->
+        <xpath expr="//th[@name='th_product']/strong" position="replace">
+            <strong>المنتج</strong>
+        </xpath>
+        <xpath expr="//th[@name='th_product']/parent::tr/th[2]/strong" position="replace">
+            <strong>الكمية</strong>
+        </xpath>
+        <xpath expr="//th[@name='th_from']/strong" position="replace">
+            <strong>من</strong>
+        </xpath>
+        <xpath expr="//th[@name='th_to']/strong" position="replace">
+            <strong>إلى</strong>
+        </xpath>
+        <xpath expr="//th[@name='th_serial_number']/strong" position="replace">
+            <strong>رقم التتبع / الدفعة</strong>
+        </xpath>
+        <xpath expr="//th[@name='th_barcode']/strong" position="replace">
+            <strong>باركود المنتج</strong>
+        </xpath>
+
+        <!-- ===== إضافة hz-table على الجدول ===== -->
+        <xpath expr="//table[hasclass('table', 'table-sm')][1]" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div class="hz-signature-section">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>أمين المستودع</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المستلم</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المسؤول</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

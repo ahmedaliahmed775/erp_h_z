@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  جرد المخزون (Count Sheet / Inventory)                       -->
+    <!--  الأصلي: stock.report_inventory                              -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_inventory"
+              inherit_id="stock.report_inventory"
+              name="HZ Inventory Count Sheet">
+
+        <!-- ===== إضافة hz-table على الجدول ===== -->
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div class="hz-signature-section">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>أمين المستودع</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>مسؤول الجرد</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المدير المسؤول</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

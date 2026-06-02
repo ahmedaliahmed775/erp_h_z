@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  قائمة التدفقات النقدية (Cash Flow Statement)                 -->
+    <!--  الأصلي: base_accounting_kit.report_cash_flow                -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_cash_flow"
+              inherit_id="base_accounting_kit.report_cash_flow"
+              name="HZ Cash Flow Statement">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

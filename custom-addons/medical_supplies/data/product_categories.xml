@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  فئات المنتجات الطبية الجاهزة              -->
+    <!-- ========================================== -->
+
+    <data noupdate="1">
+
+        <!-- الفئة الرئيسية -->
+        <record id="medical_product_category_root" model="product.category">
+            <field name="name">مستلزمات طبية</field>
+        </record>
+
+        <!-- الفئات الفرعية -->
+        <record id="medical_cat_ppe" model="product.category">
+            <field name="name">معدات الوقاية الشخصية</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_injection" model="product.category">
+            <field name="name">مستلزمات الحقن</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_surgical" model="product.category">
+            <field name="name">مستلزمات جراحية</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_laboratory" model="product.category">
+            <field name="name">مستلزمات مخبرية</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_equipment" model="product.category">
+            <field name="name">أجهزة ومعدات طبية</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_sterilization" model="product.category">
+            <field name="name">مستلزمات التعقيم والتطهير</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_bandages" model="product.category">
+            <field name="name">ضمادات وشاش ولاصقات</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_diagnostic" model="product.category">
+            <field name="name">أدوات تشخيصية</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_dental" model="product.category">
+            <field name="name">مستلزمات طب الأسنان</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+        <record id="medical_cat_ophthalmic" model="product.category">
+            <field name="name">مستلزمات طب العيون</field>
+            <field name="parent_id" ref="medical_product_category_root"/>
+        </record>
+
+    </data>
+</odoo>

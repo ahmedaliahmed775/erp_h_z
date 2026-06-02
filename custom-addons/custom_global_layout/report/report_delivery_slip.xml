@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  قالب سند التسليم — الحسن زكريا                               -->
+    <!--  الأصلي: stock.report_delivery_document                      -->
+    <!--  جدولين: stock_move_table (state!=done)                      -->
+    <!--          stock_move_line_table (state==done)                  -->
+    <!-- ============================================================ -->
+
+    <template id="hz_delivery_document"
+              inherit_id="stock.report_delivery_document"
+              name="HZ Unified Delivery Slip">
+
+        <!-- ===== تعريب عناوين الجدول (state != done) ===== -->
+        <xpath expr="//th[@name='th_sm_product']" position="replace">
+            <th name="th_sm_product"><strong>المنتج</strong></th>
+        </xpath>
+        <xpath expr="//th[@name='th_sm_ordered']" position="replace">
+            <th name="th_sm_ordered"><strong>المطلوب</strong></th>
+        </xpath>
+        <xpath expr="//th[@name='th_sm_quantity']" position="replace">
+            <th name="th_sm_quantity"><strong>المسلّم</strong></th>
+        </xpath>
+
+        <!-- ===== تعريب عناوين الجدول (state == done) ===== -->
+        <xpath expr="//th[@name='th_sml_product']" position="replace">
+            <th name="th_sml_product"><strong>المنتج</strong></th>
+        </xpath>
+        <xpath expr="//th[@name='th_sml_quantity']" position="replace">
+            <th name="th_sml_quantity" class="text-center"><strong>المسلّم</strong></th>
+        </xpath>
+
+        <!-- ===== إضافة كلاس الجدول الموحّد ===== -->
+        <xpath expr="//table[@name='stock_move_table']" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_line_table']" position="attributes">
+            <attribute name="class">table table-sm mt48 hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//table[@name='stock_move_table']" position="after">
+            <div class="hz-signature-section hz-delivery-signatures">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>أمين المستودع</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المستلم</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="hz-signature-line">
+                            <span>المسؤول</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

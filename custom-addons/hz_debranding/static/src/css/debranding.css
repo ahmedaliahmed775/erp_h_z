@@ -1,0 +1,64 @@
+/* ============================================= */
+/*  إزالة شاملة لهوية Odoo — الحسن زكريا         */
+/* ============================================= */
+
+/* إخفاء كل الروابط والنصوص التي تشير إلى Odoo */
+.o_brand_promotion,
+.o_brand_promotion_message,
+a[href*="odoo.com"],
+.o_home_menu_background .o_odoo_label,
+.o_home_menu .o_odoo_logo,
+.o_dialog_warning a[href*="odoo.com"],
+.o_notification a[href*="odoo.com"],
+.o_community_edition_warning,
+.o_debug_manager {
+    display: none !important;
+}
+
+/* إخفاء شعار Odoo الكبير في الصفحة الرئيسية */
+.o_home_menu .o_enterprise_logo,
+.o_home_menu_background::before {
+    display: none !important;
+}
+
+/* إخفاء رابط الدعم في القائمة المنسدلة للمستخدم */
+.o_user_menu a[href*="odoo.com"],
+.o_user_menu a[data-menu="documentation"],
+.o_user_menu a[data-menu="support"],
+.o_user_menu a[data-menu="shortcuts"] {
+    display: none !important;
+}
+
+/* إخفاء شارة Community Edition */
+.badge.text-bg-info:has(a[href*="odoo.com"]) {
+    display: none !important;
+}
+
+/* إخفاء رسالة "Odoo Community" في About */
+.o_dialog .modal-body a[href*="odoo.com"] {
+    display: none !important;
+}
+
+/* إخفاء "حسابي على اودو" من قائمة المستخدم */
+.o_user_menu .dropdown-item[data-menu="account"],
+.o_user_menu span[data-menu="account"],
+a.dropdown-item[href*="odoo.com/my/home"],
+a.dropdown-item[href*="odoo.com/my"],
+.o_user_menu a[href*="odoo.com/my"] {
+    display: none !important;
+}
+
+/* إخفاء زر الشات/الدردشة من الشريط العلوي */
+.o-mail-DiscussSystray-class,
+.o-mail-DiscussSystray,
+.o_MessagingMenu,
+.o-mail-MessagingMenu {
+    display: none !important;
+}
+
+/* إخفاء حاوية نوافذ الدردشة المنبثقة */
+.o-mail-ChatWindowContainer,
+.o-mail-ChatWindow,
+.o-mail-ChatHub {
+    display: none !important;
+}

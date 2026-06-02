@@ -1,0 +1,58 @@
+/* ============================================= */
+/*  صفحة تسجيل الدخول المخصصة                    */
+/* ============================================= */
+
+.oe_login_background {
+    background: linear-gradient(135deg, #023E8A 0%, #0077B6 50%, #00B4D8 100%) !important;
+    min-height: 100vh;
+}
+
+.oe_login_form {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem !important;
+}
+
+.oe_login_form .btn-primary {
+    background: linear-gradient(135deg, #0077B6, #023E8A) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.oe_login_form .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 119, 182, 0.4);
+}
+
+.oe_login_form input[type="text"],
+.oe_login_form input[type="password"] {
+    border-radius: 10px !important;
+    border: 2px solid #e0e0e0 !important;
+    padding: 12px !important;
+    transition: border-color 0.3s ease;
+}
+
+.oe_login_form input:focus {
+    border-color: #0077B6 !important;
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15) !important;
+}
+
+/* إخفاء أي إشارة لـ Odoo في صفحة الدخول */
+.oe_login_form a[href*="odoo.com"],
+.oe_login_form .text-muted a[href*="odoo"],
+footer a[href*="odoo.com"],
+.o_database_manager_link {
+    display: none !important;
+}
+
+/* لوجو الشركة */
+.medical-login-logo img {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}

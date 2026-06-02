@@ -1,0 +1,74 @@
+# ============================================================
+#  .gitignore — Odoo 17 Medical ERP (Docker)
+#  الحسن زكريا للمستلزمات الطبية
+# ============================================================
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+*.so
+
+# === Virtual Environment ===
+venv/
+env/
+.venv/
+
+# === Docker Volumes (لا تُرفع للمستودع) ===
+odoo-data/
+db-data/
+
+# === Odoo Filestore & Sessions ===
+filestore/
+sessions/
+
+# === Database Backups (لا تُرفع للمستودع) ===
+backups/
+
+# === سجلات (Logs) ===
+*.log
+logs/
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE / Editors ===
+.idea/
+*.swp
+*.swo
+*~
+
+# === Environment / Secrets ===
+.env
+.env.local
+.env.*.local
+
+# === Node (إن وُجد) ===
+node_modules/
+
+# === ملفات مؤقتة ===
+*.tmp
+*.bak
+*.zip
+*.tar.gz
+
+# === تقارير وخرائط مؤقتة (إن وُجدت لمرة واحدة) ===
+reports_detailed_map.txt
+reports_full_map.md
+all_reports_list.txt
+
+# === سكريبتات محلية ونسخ احتياطية ===
+auto_backup.ps1
+backup_all.sql
+
+# === مجلدات إضافات خارجية غير مستخدمة حالياً ===
+temp_server_ux/
+
+# === branding (ملفات هوية محلية) ===
+branding/

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  التقارير المالية (Financial Reports)                        -->
+    <!--  الأصلي: base_accounting_kit.report_financial                -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_financial"
+              inherit_id="base_accounting_kit.report_financial"
+              name="HZ Financial Reports">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  أعمار الأرصدة (Aged Partner Balance)                        -->
+    <!--  الأصلي: base_accounting_kit.report_agedpartnerbalance       -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_aged_partner"
+              inherit_id="base_accounting_kit.report_agedpartnerbalance"
+              name="HZ Aged Partner Balance">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

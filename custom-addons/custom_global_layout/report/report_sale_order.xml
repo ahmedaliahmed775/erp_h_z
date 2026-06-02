@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  قالب عرض السعر / أمر البيع — الحسن زكريا                     -->
+    <!--  الأصلي: sale.report_saleorder_document                       -->
+    <!--  أسماء الأعمدة: th_description, th_quantity, th_priceunit,    -->
+    <!--                  th_discount, th_taxes, th_subtotal           -->
+    <!--  الجدول: table class (بدون name attribute)                    -->
+    <!-- ============================================================ -->
+
+    <template id="hz_sale_order_document"
+              inherit_id="sale.report_saleorder_document"
+              name="HZ Unified Sale Order">
+
+        <!-- ===== تعريب عناوين جدول البنود ===== -->
+        <xpath expr="//th[@name='th_description']" position="replace">
+            <th name="th_description" class="text-start">وصف المنتج</th>
+        </xpath>
+        <xpath expr="//th[@name='th_quantity']" position="replace">
+            <th name="th_quantity" class="text-end">الكمية</th>
+        </xpath>
+        <xpath expr="//th[@name='th_priceunit']" position="replace">
+            <th name="th_priceunit" class="text-end">سعر الوحدة</th>
+        </xpath>
+        <xpath expr="//th[@name='th_discount']" position="replace">
+            <th name="th_discount" t-if="display_discount" class="text-end">
+                <span>خصم%</span>
+            </th>
+        </xpath>
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+            <th name="th_taxes" class="text-end">الضرائب</th>
+        </xpath>
+        <xpath expr="//th[@name='th_subtotal']" position="replace">
+            <th name="th_subtotal" class="text-end">
+                <span>الإجمالي</span>
+            </th>
+        </xpath>
+
+        <!-- ===== إضافة كلاس الجدول الموحّد ===== -->
+        <xpath expr="//thead/.." position="attributes">
+            <attribute name="class">table table-sm o_main_table table-borderless mt-4 hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//span[@name='order_note']" position="after">
+            <div class="hz-signature-section">
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <div class="hz-signature-line">
+                            <span>توقيع العميل / الختم</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="hz-signature-line">
+                            <span>توقيع المسؤول / الختم</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

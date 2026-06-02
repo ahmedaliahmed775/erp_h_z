@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  صفحة تسجيل الدخول الاحترافية — Split Layout  -->
+    <!-- ========================================== -->
+
+    <!-- استبدال تخطيط صفحة الدخول بالكامل — تصميم منقسم -->
+    <template id="login_custom_hz"
+              inherit_id="web.login_layout"
+              name="HZ Custom Login Layout">
+
+        <!-- استبدال الحاوية الرئيسية بالتصميم المنقسم -->
+        <xpath expr="//div[hasclass('container')]" position="replace">
+            <div class="hz-login-wrapper">
+                <!-- ===== القسم الأيسر — صورة ترحيبية ===== -->
+                <div class="hz-login-hero">
+                    <div class="hz-hero-overlay"/>
+                    <div class="hz-hero-content">
+                        <img src="/hz_debranding/static/src/img/logo.png"
+                             alt="شعار الحسن زكريا"
+                             class="hz-hero-logo"/>
+                        <h1 class="hz-hero-title">
+                            مرحباً بكم في نظام الحسن زكريا
+                        </h1>
+                        <p class="hz-hero-subtitle">
+                            نظام إدارة الموارد المتكامل
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ===== القسم الأيمن — نموذج الدخول ===== -->
+                <div class="hz-login-panel">
+                    <div class="hz-login-panel-inner">
+                        <!-- شعار واسم الشركة -->
+                        <div class="hz-panel-header">
+                            <img src="/hz_debranding/static/src/img/logo.png"
+                                 alt="الحسن زكريا"
+                                 class="hz-panel-logo"/>
+                            <h4 class="hz-panel-title">
+                                الحسن زكريا لاستيراد المستلزمات الطبية
+                            </h4>
+                            <p class="hz-panel-subtitle">
+                                نظام إدارة الموارد المتكامل
+                            </p>
+                        </div>
+
+                        <!-- نموذج الدخول -->
+                        <div class="hz-form-container">
+                            <t t-out="0"/>
+                        </div>
+
+                        <!-- فوتر -->
+                        <div class="hz-panel-footer">
+                            <a href="mailto:student.ust.edu.ye@" class="hz-support-link">
+                                تواصل مع الدعم
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+    <!-- تعريب نموذج الدخول -->
+    <template id="login_arabic_hz"
+              inherit_id="web.login"
+              name="HZ Arabic Login Form">
+
+        <!-- تعريب label البريد -->
+        <xpath expr="//label[@for='login']" position="replace">
+            <label for="login" class="form-label hz-form-label">البريد الإلكتروني</label>
+        </xpath>
+
+        <!-- تعريب placeholder البريد -->
+        <xpath expr="//input[@id='login']" position="attributes">
+            <attribute name="placeholder">أدخل البريد الإلكتروني</attribute>
+            <attribute name="class">form-control hz-input</attribute>
+        </xpath>
+
+        <!-- تعريب label كلمة المرور -->
+        <xpath expr="//label[@for='password']" position="replace">
+            <label for="password" class="form-label hz-form-label">كلمة المرور</label>
+        </xpath>
+
+        <!-- تعريب placeholder كلمة المرور -->
+        <xpath expr="//input[@id='password']" position="attributes">
+            <attribute name="placeholder">••••••••</attribute>
+            <attribute name="class">form-control hz-input</attribute>
+        </xpath>
+
+        <!-- تعريب زر تسجيل الدخول -->
+        <xpath expr="//button[@type='submit']" position="replace">
+            <button type="submit" class="btn btn-primary hz-login-btn">
+                تسجيل الدخول
+            </button>
+        </xpath>
+
+        <!-- إخفاء رابط تسجيل الدخول كمستخدم خارق -->
+        <xpath expr="//t[@t-if='debug']" position="replace"/>
+
+    </template>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  دفتر النقدية (Cash Book)                                    -->
+    <!--  الأصلي: base_accounting_kit.report_cash_book                -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_cash_book"
+              inherit_id="base_accounting_kit.report_cash_book"
+              name="HZ Cash Book">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

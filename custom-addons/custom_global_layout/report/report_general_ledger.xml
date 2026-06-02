@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  دفتر الأستاذ العام (General Ledger)                         -->
+    <!--  الأصلي: base_accounting_kit.report_general_ledger           -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_general_ledger"
+              inherit_id="base_accounting_kit.report_general_ledger"
+              name="HZ General Ledger">
+
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm table-condensed hz-table</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

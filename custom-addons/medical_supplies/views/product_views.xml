@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  واجهة المنتجات الطبية — حقول إضافية        -->
+    <!-- ========================================== -->
+
+    <!-- إضافة تبويب طبي في نموذج المنتج -->
+    <record id="product_template_medical_form" model="ir.ui.view">
+        <field name="name">product.template.medical.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']" position="after">
+                
+                <!-- ===== تبويب المعلومات الطبية ===== -->
+                <page string="المعلومات الطبية" name="medical_info">
+                    
+                    <group string="التسجيل والتصنيف">
+                        <group>
+                            <field name="medical_classification"/>
+                            <field name="risk_class"/>
+                            <field name="medical_registration_no"/>
+                        </group>
+                        <group>
+                            <field name="is_sfda_approved"/>
+                            <field name="sfda_approval_no" 
+                                   invisible="not is_sfda_approved"/>
+                            <field name="manufacturer_name"/>
+                            <field name="country_of_origin"/>
+                        </group>
+                    </group>
+
+                    <group string="التخزين والصلاحية">
+                        <group>
+                            <field name="storage_condition"/>
+                            <field name="shelf_life_months"/>
+                            <field name="min_remaining_shelf_life"/>
+                        </group>
+                        <group>
+                            <field name="min_stock_qty"/>
+                            <field name="max_stock_qty"/>
+                            <field name="reorder_point"/>
+                        </group>
+                    </group>
+
+                    <group string="معلومات الاستيراد">
+                        <group>
+                            <field name="hs_code"/>
+                            <field name="customs_tariff"/>
+                        </group>
+                        <group>
+                            <field name="import_license_required"/>
+                        </group>
+                    </group>
+
+                    <group string="ملاحظات التخزين">
+                        <field name="storage_notes" nolabel="1" 
+                               placeholder="أدخل تعليمات خاصة للتخزين والتداول..."/>
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- إضافة حقول طبية في عرض القائمة -->
+    <record id="product_template_medical_tree" model="ir.ui.view">
+        <field name="name">product.template.medical.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="medical_classification" optional="show"/>
+                <field name="manufacturer_name" optional="hide"/>
+                <field name="storage_condition" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- فلتر بحث طبي -->
+    <record id="product_template_medical_search" model="ir.ui.view">
+        <field name="name">product.template.medical.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter string="مستهلكات طبية" name="disposable"
+                        domain="[('medical_classification', '=', 'disposable')]"/>
+                <filter string="أجهزة ومعدات" name="equipment"
+                        domain="[('medical_classification', '=', 'equipment')]"/>
+                <filter string="كواشف مخبرية" name="reagent"
+                        domain="[('medical_classification', '=', 'reagent')]"/>
+                <filter string="معتمد SFDA" name="sfda_approved"
+                        domain="[('is_sfda_approved', '=', True)]"/>
+                <separator/>
+                <filter string="تخزين مبرّد" name="cold_storage"
+                        domain="[('storage_condition', 'in', ['cool', 'frozen', 'deep_frozen'])]"/>
+                <separator/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="التصنيف الطبي" name="group_medical"
+                            context="{'group_by': 'medical_classification'}"/>
+                    <filter string="ظروف التخزين" name="group_storage"
+                            context="{'group_by': 'storage_condition'}"/>
+                    <filter string="بلد المنشأ" name="group_origin"
+                            context="{'group_by': 'country_of_origin'}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

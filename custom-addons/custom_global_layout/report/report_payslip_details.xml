@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--  تفاصيل كشف الراتب (PaySlip Details)                        -->
+    <!--  الأصلي: om_hr_payroll.report_payslip_details                -->
+    <!-- ============================================================ -->
+
+    <template id="hz_report_payslip_details"
+              inherit_id="om_hr_payroll.report_payslip_details"
+              name="HZ PaySlip Details">
+
+        <!-- ===== إضافة hz-table على الجداول ===== -->
+        <xpath expr="//table[hasclass('table')]" position="attributes">
+            <attribute name="class">table table-sm hz-table</attribute>
+        </xpath>
+
+        <!-- ===== قسم التوقيعات ===== -->
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div class="hz-signature-section">
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <div class="hz-signature-line">
+                            <span>توقيع الموظف</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="hz-signature-line">
+                            <span>مدير الموارد البشرية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

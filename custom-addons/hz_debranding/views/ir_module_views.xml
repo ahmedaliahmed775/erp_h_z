@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  إخفاء قائمة Apps/Modules من المستخدمين     -->
+    <!--  العاديين حتى لا يظهر أنه Odoo             -->
+    <!-- ========================================== -->
+
+    <!-- إخفاء قائمة التطبيقات (Apps) من القائمة الرئيسية للمستخدمين العاديين -->
+    <record id="base.menu_management" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+    </record>
+
+    <!-- تغيير اسم قائمة الإعدادات -->
+    <record id="base.menu_administration" model="ir.ui.menu">
+        <field name="name">الإدارة</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+    </record>
+
+</odoo>

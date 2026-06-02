@@ -1,0 +1,190 @@
+/* ============================================================ */
+/*  CSS الموحّد لجميع تقارير النظام — الحسن زكريا               */
+/*  يتحكم في: الفواتير، عروض الأسعار، أوامر الشراء،             */
+/*  سندات التسليم، وأي تقرير يستخدم external_layout_standard   */
+/* ============================================================ */
+
+/* === الخط العام === */
+/*  ملاحظة: wkhtmltopdf لا يدعم @import الخارجي.
+    يجب وضع ملفات خط Cairo في static/src/fonts/ وتحميلها عبر @font-face أدناه.
+    للتفعيل، حمّل ملفات Cairo (Cairo-Regular.ttf, Cairo-Bold.ttf)
+    من https://fonts.google.com/specimen/Cairo وضعها في المجلد المذكور. */
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/Cairo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/Cairo-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/Cairo-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/Cairo-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body, .article, .page {
+    font-family: 'Cairo', 'Arial', sans-serif !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* === ألوان الهوية === */
+:root {
+    --hz-primary: #0D47A1;
+    --hz-primary-dark: #002171;
+    --hz-primary-light: #e8eaf6;
+    --hz-text: #333333;
+    --hz-text-light: #666666;
+    --hz-border: #dee2e6;
+}
+
+/* === الهيدر === */
+.hz-header {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* === الجدول الموحّد hz-table === */
+.hz-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    font-size: 10px !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.hz-table thead {
+    background: var(--hz-primary, #0077B6) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.hz-table thead th {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    padding: 8px 6px !important;
+    border: 1px solid var(--hz-primary-dark, #005f8d) !important;
+    font-size: 10px !important;
+    font-family: 'Cairo', sans-serif !important;
+    white-space: nowrap;
+}
+
+.hz-table tbody td {
+    text-align: center !important;
+    padding: 6px 5px !important;
+    border: 1px solid var(--hz-border, #dee2e6) !important;
+    vertical-align: middle !important;
+    font-size: 10px !important;
+    color: var(--hz-text, #333) !important;
+}
+
+.hz-table tbody tr:nth-child(even) {
+    background-color: var(--hz-primary-light, #e8f4f8) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.hz-table tbody tr:hover {
+    background-color: #ddeef5 !important;
+}
+
+/* === أول عمود (الوصف) محاذاة يمين === */
+.hz-table tbody td:first-child {
+    text-align: right !important;
+    padding-right: 10px !important;
+}
+
+/* === صف المجاميع === */
+.hz-table tfoot td,
+.hz-table tfoot th {
+    font-weight: 700 !important;
+    border-top: 2px solid var(--hz-primary, #0077B6) !important;
+    font-size: 11px !important;
+    padding: 8px 6px !important;
+}
+
+/* === قسم التوقيعات === */
+.hz-signature-section {
+    margin-top: 50px !important;
+    page-break-inside: avoid !important;
+    direction: rtl !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.hz-signature-line {
+    border-top: 1px solid #999;
+    width: 180px;
+    margin: 0 auto;
+    padding-top: 8px;
+}
+
+.hz-signature-line span {
+    font-size: 9px;
+    color: var(--hz-text-light, #666);
+    font-family: 'Cairo', sans-serif;
+}
+
+/* === قسم الشروط === */
+.hz-terms-section {
+    margin-top: 20px;
+    page-break-inside: avoid;
+    direction: rtl;
+}
+
+/* === معلومات المستند (رقم الفاتورة، التاريخ..) === */
+.page .row.mt-4.mb-4,
+.page .row.mt32.mb32 {
+    direction: rtl !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* === مبالغ الإجمالي === */
+#total,
+.oe_subtotal_footer {
+    direction: rtl !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* === رقم الصفحة في الفوتر === */
+.footer .page,
+.footer .topage {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* === طباعة — ضمان ظهور الألوان === */
+@media print {
+    .hz-table thead {
+        background: #0D47A1 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .hz-table thead th {
+        color: #ffffff !important;
+    }
+
+    .hz-table tbody tr:nth-child(even) {
+        background-color: #e8eaf6 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .hz-signature-section {
+        page-break-inside: avoid !important;
+    }
+}

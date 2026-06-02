@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  واجهة اللوت الطبية — حقول إضافية           -->
+    <!-- ========================================== -->
+
+    <!-- إضافة حقول طبية في نموذج اللوت -->
+    <record id="stock_lot_medical_form" model="ir.ui.view">
+        <field name="name">stock.lot.medical.form</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main_group']" position="after">
+                
+                <group string="المعلومات الطبية للدفعة">
+                    <group>
+                        <field name="batch_number"/>
+                        <field name="manufacturing_date"/>
+                        <field name="sterilization_date"/>
+                        <field name="inspection_status" widget="badge"
+                               decoration-success="inspection_status == 'passed'"
+                               decoration-danger="inspection_status == 'failed'"
+                               decoration-warning="inspection_status in ('pending', 'quarantine')"/>
+                    </group>
+                    <group>
+                        <field name="days_to_expiry"/>
+                        <field name="expiry_status" widget="badge"
+                               decoration-success="expiry_status == 'valid'"
+                               decoration-warning="expiry_status == 'warning'"
+                               decoration-danger="expiry_status == 'expired'"/>
+                        <field name="certificate_of_analysis" filename="certificate_filename"/>
+                        <field name="certificate_filename" invisible="1"/>
+                    </group>
+                </group>
+
+                <group string="ملاحظات">
+                    <field name="inspector_notes" nolabel="1"
+                           placeholder="ملاحظات المفتّش حول حالة الدفعة..."/>
+                    <field name="temperature_log" nolabel="1"
+                           placeholder="سجل درجات الحرارة أثناء النقل والتخزين..."/>
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+
+    <!-- إضافة حقول في قائمة اللوت -->
+    <record id="stock_lot_medical_tree" model="ir.ui.view">
+        <field name="name">stock.lot.medical.tree</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="batch_number" optional="show"/>
+                <field name="manufacturing_date" optional="show"/>
+                <field name="inspection_status" widget="badge" optional="show"
+                       decoration-success="inspection_status == 'passed'"
+                       decoration-danger="inspection_status == 'failed'"
+                       decoration-warning="inspection_status in ('pending', 'quarantine')"/>
+                <field name="expiry_status" widget="badge" optional="show"
+                       decoration-success="expiry_status == 'valid'"
+                       decoration-warning="expiry_status == 'warning'"
+                       decoration-danger="expiry_status == 'expired'"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

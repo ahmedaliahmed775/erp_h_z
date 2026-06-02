@@ -1,0 +1,332 @@
+/* ============================================= */
+/*  تخصيص نقطة البيع — الحسن زكريا               */
+/*  ألوان ومظهر متوافق مع هوية النظام             */
+/* ============================================= */
+
+/* ===== شريط التنقل العلوي ===== */
+.pos-topheader {
+    background: linear-gradient(135deg, #023E8A 0%, #0077B6 100%) !important;
+    border-bottom: 2px solid #0065A3 !important;
+    height: 52px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* شعار أودو — استبدال بشعار الشركة */
+.pos-logo {
+    content: url('/hz_debranding/static/src/img/logo.png') !important;
+    filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,0.2));
+    max-height: 36px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+/* اسم الكاشير والأزرار */
+.pos-topheader .status-buttons,
+.pos-topheader .pos-rightheader {
+    color: #ffffff !important;
+}
+
+.pos-topheader .status-buttons .btn,
+.pos-topheader .navbar-button {
+    color: #ffffff !important;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+.pos-topheader .navbar-button:hover,
+.pos-topheader .status-buttons .btn:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.pos-topheader .menu-button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+
+.pos-topheader .menu-button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* اسم الكاشير */
+.cashier-name {
+    color: #ffffff !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* ===== زر الدفع الجانبي ===== */
+.pay-order-button,
+.button.pay-order-button,
+.actionpad .button.pay {
+    background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%) !important;
+    color: #ffffff !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.pay-order-button:hover,
+.actionpad .button.pay:hover {
+    background: linear-gradient(135deg, #023E8A 0%, #01497C 100%) !important;
+    transform: scale(1.02);
+}
+
+/* ===== لوحة المفاتيح الرقمية ===== */
+.numpad .numpad-row .input-button {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    color: #2D3748 !important;
+    font-size: 1rem !important;
+}
+
+.numpad .numpad-row .input-button:hover {
+    background: #edf2f7 !important;
+    border-color: #0077B6 !important;
+    color: #0077B6 !important;
+}
+
+.numpad .numpad-row .input-button:active {
+    background: #0077B6 !important;
+    color: #ffffff !important;
+    transform: scale(0.97);
+}
+
+/* أزرار الوضع (الكمية، السعر، الخصم) */
+.numpad .numpad-row .mode-button {
+    background: #edf2f7 !important;
+    border: 1px solid #cbd5e0 !important;
+    border-radius: 8px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+    color: #4A5568 !important;
+    transition: all 0.2s ease !important;
+}
+
+.numpad .numpad-row .mode-button.selected-mode,
+.numpad .numpad-row .mode-button:active {
+    background: #0077B6 !important;
+    color: #ffffff !important;
+    border-color: #0077B6 !important;
+    box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3) !important;
+}
+
+.numpad .numpad-row .mode-button:hover {
+    background: #e2e8f0 !important;
+    border-color: #0077B6 !important;
+}
+
+/* ===== شريط العنوان والعميل ===== */
+.control-buttons .control-button {
+    font-family: 'Cairo', sans-serif !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.control-buttons .control-button:hover {
+    background: rgba(0, 119, 182, 0.1) !important;
+    color: #0077B6 !important;
+}
+
+.control-buttons .control-button.highlight {
+    background: #0077B6 !important;
+    color: #ffffff !important;
+}
+
+/* ===== قائمة المنتجات ===== */
+.product-list .product {
+    border-radius: 10px !important;
+    border: 1px solid #e8eef3 !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow: hidden;
+}
+
+.product-list .product:hover {
+    border-color: #0077B6 !important;
+    box-shadow: 0 4px 16px rgba(0, 119, 182, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+.product-list .product .product-name {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+    color: #2D3748 !important;
+}
+
+.product-list .product .price-tag {
+    background: linear-gradient(135deg, #0077B6, #023E8A) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+    padding: 2px 8px !important;
+}
+
+/* ===== الفئات ===== */
+.pos-search-bar .search-bar-portal {
+    border-radius: 10px !important;
+    border: 2px solid #e2e8f0 !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.pos-search-bar .search-bar-portal:focus-within {
+    border-color: #0077B6 !important;
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1) !important;
+}
+
+.category-button {
+    font-family: 'Cairo', sans-serif !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+.category-button:hover {
+    background: rgba(0, 119, 182, 0.1) !important;
+    color: #0077B6 !important;
+}
+
+.category-button.active,
+.category-button.selected {
+    background: #0077B6 !important;
+    color: #ffffff !important;
+}
+
+/* ===== سلة الطلب ===== */
+.order-container .orderline {
+    font-family: 'Cairo', sans-serif !important;
+    border-bottom: 1px solid #f0f4f8 !important;
+    transition: all 0.2s ease !important;
+}
+
+.order-container .orderline.selected {
+    background: rgba(0, 119, 182, 0.08) !important;
+    border-right: 3px solid #0077B6 !important;
+}
+
+.order-container .orderline:hover {
+    background: rgba(0, 119, 182, 0.04) !important;
+}
+
+/* ===== ملخص المبلغ ===== */
+.order-container .summary .subentry {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.order-container .summary .total .value {
+    color: #0077B6 !important;
+    font-weight: 800 !important;
+    font-size: 1.3rem !important;
+}
+
+/* ===== شاشة الدفع ===== */
+.payment-screen .paymentlines .paymentline .payment-name {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.payment-screen .paymentlines .paymentline.selected {
+    background: rgba(0, 119, 182, 0.08) !important;
+    border-right: 3px solid #0077B6 !important;
+}
+
+.payment-screen .button.next {
+    background: linear-gradient(135deg, #27AE60 0%, #219653 100%) !important;
+    color: #ffffff !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3) !important;
+}
+
+.payment-screen .button.next:hover {
+    background: linear-gradient(135deg, #219653 0%, #1E8449 100%) !important;
+    transform: scale(1.02);
+}
+
+/* ===== صندوق البحث ===== */
+.pos .search-bar-portal input {
+    font-family: 'Cairo', sans-serif !important;
+    direction: rtl !important;
+}
+
+/* ===== شاشة البداية (إبدأ بإضافة المنتجات) ===== */
+.pos-content .placeholder-image,
+.product-list-container .d-flex.flex-column {
+    color: #94a3b8 !important;
+}
+
+/* ===== القائمة المنسدلة (Burger menu) ===== */
+.dropdown-menu.sub-menu {
+    border-radius: 10px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
+    overflow: hidden;
+}
+
+.dropdown-menu.sub-menu .dropdown-item {
+    font-family: 'Cairo', sans-serif !important;
+    transition: all 0.2s ease !important;
+    padding: 10px 16px !important;
+}
+
+.dropdown-menu.sub-menu .dropdown-item:hover {
+    background: rgba(0, 119, 182, 0.08) !important;
+    color: #0077B6 !important;
+}
+
+/* ===== إيصال الطباعة ===== */
+.receipt-screen .buttons .button {
+    font-family: 'Cairo', sans-serif !important;
+    border-radius: 8px !important;
+}
+
+.receipt-screen .buttons .button.highlight {
+    background: #0077B6 !important;
+    color: #ffffff !important;
+}
+
+/* ===== إخفاء كل إشارات أودو في POS ===== */
+.pos-topheader img[src*="logo.png"],
+.pos .o_brand_promotion,
+a[href*="odoo.com"],
+.pos-branding img[src="/web/static/img/logo.png"] {
+    /* تم استبدال الشعار عبر content */
+}
+
+/* ===== تحسينات عامة ===== */
+.pos {
+    font-family: 'Cairo', 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Scrollbar مخصص */
+.pos ::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pos ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.pos ::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+.pos ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ===== أيقونات ملونة ===== */
+.pos .fa-shopping-cart,
+.pos .fa-home {
+    color: #ffffff !important;
+}
+
+/* ===== Badge ===== */
+.pos .badge.text-bg-info {
+    background: #0077B6 !important;
+}

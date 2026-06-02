@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  وحدات قياس طبية إضافية                     -->
+    <!-- ========================================== -->
+
+    <data noupdate="1">
+
+        <!-- فئة وحدات طبية -->
+        <record id="medical_uom_category" model="uom.category">
+            <field name="name">وحدات طبية</field>
+        </record>
+
+        <record id="medical_uom_pack" model="uom.uom">
+            <field name="name">عبوة</field>
+            <field name="category_id" ref="medical_uom_category"/>
+            <field name="factor">1.0</field>
+            <field name="uom_type">reference</field>
+        </record>
+
+        <record id="medical_uom_box" model="uom.uom">
+            <field name="name">صندوق (10 عبوات)</field>
+            <field name="category_id" ref="medical_uom_category"/>
+            <field name="factor_inv">10.0</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="medical_uom_carton" model="uom.uom">
+            <field name="name">كرتون (50 عبوة)</field>
+            <field name="category_id" ref="medical_uom_category"/>
+            <field name="factor_inv">50.0</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="medical_uom_pallet" model="uom.uom">
+            <field name="name">باليت</field>
+            <field name="category_id" ref="medical_uom_category"/>
+            <field name="factor_inv">500.0</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+    </data>
+</odoo>

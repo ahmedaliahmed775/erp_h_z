@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!--  إزالة كاملة لهوية Odoo من الواجهة         -->
+    <!-- ========================================== -->
+
+    <!-- استبدال رسالة "Powered by Odoo" بفراغ -->
+    <template id="brand_promotion_remove"
+              inherit_id="web.brand_promotion_message"
+              name="HZ Remove Odoo Branding">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo"></t>
+        </xpath>
+        <xpath expr="//t[@t-set='final_message']" position="replace">
+            <t t-set="final_message"></t>
+        </xpath>
+        <xpath expr="//t[@t-out]" position="replace">
+            <span></span>
+        </xpath>
+    </template>
+
+    <!-- إخفاء div الترويج بالكامل -->
+    <template id="brand_promotion_hide"
+              inherit_id="web.brand_promotion"
+              name="HZ Hide Brand Promotion">
+        <xpath expr="//div[hasclass('o_brand_promotion')]" position="replace">
+            <div class="o_brand_promotion" style="display:none !important;"></div>
+        </xpath>
+    </template>
+
+    <!-- تغيير عنوان Tab المتصفح من Odoo إلى اسم الشركة -->
+    <template id="web_title_hz"
+              inherit_id="web.layout"
+              name="HZ Custom Web Title">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'الحسن زكريا - المستلزمات الطبية'"/>
+        </xpath>
+        <!-- تحميل خطوط Google عبر link tag -->
+        <xpath expr="//head" position="inside">
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+            <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+        </xpath>
+
+        <!-- استبدال أيقونة التبويب (favicon) بشعار الشركة -->
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link type="image/png" rel="shortcut icon" href="/hz_debranding/static/src/img/logo.png"/>
+        </xpath>
+    </template>
+
+</odoo>
